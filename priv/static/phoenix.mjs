@@ -1147,9 +1147,9 @@ var Socket = class {
    *
    * See https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent#Status_codes for valid status codes.
    *
-   * @param {Function} callback - Optional callback which is called after socket is disconnected.
-   * @param {integer} code - A status code for disconnection (Optional).
-   * @param {string} reason - A textual description of the reason to disconnect. (Optional)
+   * @param {Function} [callback] - Optional callback which is called after socket is disconnected.
+   * @param {integer} [code] - A status code for disconnection (Optional).
+   * @param {string} [reason] - A textual description of the reason to disconnect. (Optional)
    */
   disconnect(callback, code, reason) {
     this.connectClock++;
@@ -1164,7 +1164,7 @@ var Socket = class {
   }
   /**
    *
-   * @param {Object} params - The params to send when connecting, for example `{user_id: userToken}`
+   * @param {Object} [params] - The params to send when connecting, for example `{user_id: userToken}`
    *
    * Passing params to connect is deprecated; pass them in the Socket constructor instead:
    * `new Socket("/socket", {params: {user_id: userToken}})`.
@@ -1576,10 +1576,24 @@ var Socket = class {
   }
 };
 export {
+  AUTH_TOKEN_PREFIX,
+  CHANNEL_EVENTS,
+  CHANNEL_STATES,
   Channel,
+  DEFAULT_TIMEOUT,
+  DEFAULT_VSN,
   LongPoll,
   Presence,
+  Push,
+  SOCKET_STATES,
   serializer_default as Serializer,
-  Socket
+  Socket,
+  TRANSPORTS,
+  Timer,
+  WS_CLOSE_NORMAL,
+  XHR_STATES,
+  global,
+  globalSelf,
+  phxWindow
 };
 //# sourceMappingURL=phoenix.mjs.map

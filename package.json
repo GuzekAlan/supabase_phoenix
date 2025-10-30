@@ -5,11 +5,18 @@
   "license": "MIT",
   "module": "./priv/static/phoenix.mjs",
   "main": "./priv/static/phoenix.cjs.js",
+  "types": "./priv/static/index.d.ts",
   "unpkg": "./priv/static/phoenix.min.js",
   "jsdelivr": "./priv/static/phoenix.min.js",
   "exports": {
-    "import": "./priv/static/phoenix.mjs",
-    "require": "./priv/static/phoenix.cjs.js"
+    "import": {
+      "types": "./priv/static/index.d.ts",
+      "default": "./priv/static/phoenix.mjs"
+    },
+    "require": {
+      "types": "./priv/static/index.d.ts",
+      "default": "./priv/static/phoenix.cjs.js"
+    }
   },
   "repository": {
     "type": "git",
@@ -20,6 +27,7 @@
     "README.md",
     "LICENSE.md",
     "package.json",
+    "tsconfig.json",
     "priv/static/*",
     "assets/js/phoenix/*"
   ],

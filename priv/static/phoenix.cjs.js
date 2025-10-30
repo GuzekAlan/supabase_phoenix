@@ -1,3 +1,4 @@
+"use strict";
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
@@ -19,11 +20,25 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // js/phoenix/index.js
 var phoenix_exports = {};
 __export(phoenix_exports, {
+  AUTH_TOKEN_PREFIX: () => AUTH_TOKEN_PREFIX,
+  CHANNEL_EVENTS: () => CHANNEL_EVENTS,
+  CHANNEL_STATES: () => CHANNEL_STATES,
   Channel: () => Channel,
+  DEFAULT_TIMEOUT: () => DEFAULT_TIMEOUT,
+  DEFAULT_VSN: () => DEFAULT_VSN,
   LongPoll: () => LongPoll,
   Presence: () => Presence,
+  Push: () => Push,
+  SOCKET_STATES: () => SOCKET_STATES,
   Serializer: () => serializer_default,
-  Socket: () => Socket
+  Socket: () => Socket,
+  TRANSPORTS: () => TRANSPORTS,
+  Timer: () => Timer,
+  WS_CLOSE_NORMAL: () => WS_CLOSE_NORMAL,
+  XHR_STATES: () => XHR_STATES,
+  global: () => global,
+  globalSelf: () => globalSelf,
+  phxWindow: () => phxWindow
 });
 module.exports = __toCommonJS(phoenix_exports);
 
@@ -1176,9 +1191,9 @@ var Socket = class {
    *
    * See https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent#Status_codes for valid status codes.
    *
-   * @param {Function} callback - Optional callback which is called after socket is disconnected.
-   * @param {integer} code - A status code for disconnection (Optional).
-   * @param {string} reason - A textual description of the reason to disconnect. (Optional)
+   * @param {Function} [callback] - Optional callback which is called after socket is disconnected.
+   * @param {integer} [code] - A status code for disconnection (Optional).
+   * @param {string} [reason] - A textual description of the reason to disconnect. (Optional)
    */
   disconnect(callback, code, reason) {
     this.connectClock++;
@@ -1193,7 +1208,7 @@ var Socket = class {
   }
   /**
    *
-   * @param {Object} params - The params to send when connecting, for example `{user_id: userToken}`
+   * @param {Object} [params] - The params to send when connecting, for example `{user_id: userToken}`
    *
    * Passing params to connect is deprecated; pass them in the Socket constructor instead:
    * `new Socket("/socket", {params: {user_id: userToken}})`.

@@ -232,9 +232,9 @@ export default class Socket {
    *
    * See https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent#Status_codes for valid status codes.
    *
-   * @param {Function} callback - Optional callback which is called after socket is disconnected.
-   * @param {integer} code - A status code for disconnection (Optional).
-   * @param {string} reason - A textual description of the reason to disconnect. (Optional)
+   * @param {Function} [callback] - Optional callback which is called after socket is disconnected.
+   * @param {integer} [code] - A status code for disconnection (Optional).
+   * @param {string} [reason] - A textual description of the reason to disconnect. (Optional)
    */
   disconnect(callback, code, reason){
     this.connectClock++
@@ -250,7 +250,7 @@ export default class Socket {
 
   /**
    *
-   * @param {Object} params - The params to send when connecting, for example `{user_id: userToken}`
+   * @param {Object} [params] - The params to send when connecting, for example `{user_id: userToken}`
    *
    * Passing params to connect is deprecated; pass them in the Socket constructor instead:
    * `new Socket("/socket", {params: {user_id: userToken}})`.
